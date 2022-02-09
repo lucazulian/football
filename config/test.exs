@@ -8,7 +8,8 @@ import Config
 config :football, Football.Repo,
   username: "football",
   password: "football",
-  hostname: "football-db",
+  hostname: System.get_env("POSTGRES_HOST") || "football-db",
+  port: System.get_env("POSTGRES_PORT") || 5432,
   database: "football_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10

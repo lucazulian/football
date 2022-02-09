@@ -86,7 +86,13 @@ jobs:
         epmd -daemon
 
     - name: Run tests + Coverage
+      env:
+        MIX_ENV: test
+        POSTGRES_HOST: localhost
+        POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
       run: |
+        mix co
+        mix ecto.reset
         mix coveralls --trace
 
     - name: Retrieve Dialyzer PLT cache
