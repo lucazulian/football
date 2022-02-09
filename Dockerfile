@@ -7,7 +7,8 @@ RUN apk add --no-cache \
     curl \
     openssh \
     bash \
-    git
+    git \
+    inotify-tools
 
 RUN mix local.hex --force && mix local.rebar --force
 

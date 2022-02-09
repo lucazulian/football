@@ -20,6 +20,20 @@ jobs:
       matrix:
         otp: ['24.2.1']
         elixir: ['1.13.2']
+    services:
+      postgres:
+        image: postgres:14.1
+        env:
+          POSTGRES_DB: football_test
+          POSTGRES_USER: football
+          POSTGRES_PASSWORD: football
+        ports:
+          - 5432/tcp
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
     - name: Checkout

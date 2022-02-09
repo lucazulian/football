@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :football, Football.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "football_dev",
+  username: "football",
+  password: "football",
+  hostname: "football-db",
+  database: "football",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
