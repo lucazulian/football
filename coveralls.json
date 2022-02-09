@@ -8,6 +8,7 @@
   },
 
   "skip_files": [
+    "test/support/",
     "priv/"
   ]
 }
