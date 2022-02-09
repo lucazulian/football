@@ -54,7 +54,10 @@ defmodule Football.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:credo, "~> 1.6", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
-      {:excoveralls, "~> 0.14.4", only: :test}
+      {:excoveralls, "~> 0.14.4", only: :test},
+      {:commanded, "~> 1.3"},
+      {:commanded_ecto_projections, "~> 1.2"},
+      {:commanded_eventstore_adapter, "~> 1.2", runtime: Mix.env() != :test}
     ]
   end
 
@@ -91,7 +94,7 @@ defmodule Football.MixProject do
       ignore_warnings: ".dialyzer_ignore.exs",
       plt_add_apps: [:ex_unit, :jason, :mix],
       plt_add_deps: :app_tree,
-      plt_file: {:no_warn, "priv/plts/football_1_13_2_otp_24.plt"}
+      plt_file: {:no_warn, "priv/plts/football_1_13_2_otp_24_2_1.plt"}
     ]
   end
 
