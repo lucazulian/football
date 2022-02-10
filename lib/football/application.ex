@@ -10,7 +10,10 @@ defmodule Football.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Football.Supervisor]
-    Supervisor.start_link(children(env), opts)
+
+    env
+    |> children()
+    |> Supervisor.start_link(opts)
   end
 
   defp children(:test) do
@@ -21,7 +24,7 @@ defmodule Football.Application do
     children() ++ [Football.Commanded.Application]
   end
 
-  defp children() do
+  defp children do
     [
       # Start the Ecto repository
       Football.Repo,
