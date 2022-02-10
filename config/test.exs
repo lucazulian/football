@@ -14,6 +14,17 @@ config :football, Football.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
+config :football, Football.App, event_store: [adapter: Commanded.EventStore.Adapters.InMemory]
+
+config :football, Football.EventStore,
+  serializer: Commanded.Serialization.JsonSerializer,
+  username: "football",
+  password: "football",
+  hostname: System.get_env("POSTGRES_HOST") || "football-db",
+  port: System.get_env("POSTGRES_PORT") || 5432,
+  database: "football_eventstore",
+  pool_size: 2
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :football, FootballWeb.Endpoint,
