@@ -3,13 +3,16 @@ defmodule FootballWeb.TodoLive do
 
   use Phoenix.LiveView
 
+  @impl true
   def mount(_params, _session, socket) do
     {:ok, socket}
   end
 
-  def render(assigns) do
-    ~L"""
-    <h1>Todo list</h1>
-    """
+  @impl true
+  def handle_event("create", _, socket) do
+    :ok =
+      Football.Commanded.Application.dispatch(%Football.Commands.Create{item_id: UUID.uuid4()})
+
+    {:noreply, socket}
   end
 end

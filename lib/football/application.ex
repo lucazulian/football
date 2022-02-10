@@ -6,8 +6,23 @@ defmodule Football.Application do
   use Application
 
   @impl true
-  def start(_type, _args) do
-    children = [
+  def start(_type, env: env) do
+    # See https://hexdocs.pm/elixir/Supervisor.html
+    # for other strategies and supported options
+    opts = [strategy: :one_for_one, name: Football.Supervisor]
+    Supervisor.start_link(children(env), opts)
+  end
+
+  defp children(:test) do
+    children()
+  end
+
+  defp children(_) do
+    children() ++ [Football.Commanded.Application]
+  end
+
+  defp children() do
+    [
       # Start the Ecto repository
       Football.Repo,
       # Start the Telemetry supervisor
@@ -17,13 +32,8 @@ defmodule Football.Application do
       # Start the Endpoint (http/https)
       FootballWeb.Endpoint
       # Start a worker by calling: Football.Worker.start_link(arg)
-      # {Football.Worker, arg}
+      # {Football.Worker, arg},
     ]
-
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Football.Supervisor]
-    Supervisor.start_link(children, opts)
   end
 
   # Tell Phoenix to update the endpoint configuration

@@ -22,7 +22,7 @@ defmodule Football.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Football.Application, []},
+      mod: {Football.Application, [env: Mix.env()]},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -52,8 +52,7 @@ defmodule Football.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-
-      # later additions
+      {:uuid, "~> 1.1"},
       {:credo, "~> 1.6", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
       {:excoveralls, "~> 0.14.4", only: :test},
