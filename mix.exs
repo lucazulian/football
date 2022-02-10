@@ -57,6 +57,8 @@ defmodule Football.MixProject do
       {:credo, "~> 1.6", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
       {:excoveralls, "~> 0.14.4", only: :test},
+
+      # commanded stuff
       {:commanded, "~> 1.3"},
       {:commanded_ecto_projections, "~> 1.2"},
       {:commanded_eventstore_adapter, "~> 1.2", runtime: Mix.env() != :test}
