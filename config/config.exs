@@ -10,6 +10,9 @@ import Config
 config :football,
   ecto_repos: [Football.Repo]
 
+config :football,
+  event_stores: [Football.EventStore]
+
 # Configures the endpoint
 config :football, FootballWeb.Endpoint,
   url: [host: "localhost"],

@@ -52,6 +52,8 @@ defmodule Football.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
+
+      # later additions
       {:credo, "~> 1.6", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
       {:excoveralls, "~> 0.14.4", only: :test},
@@ -79,9 +81,10 @@ defmodule Football.MixProject do
         "format --check-formatted mix.exs 'lib/**/*.{ex,exs}' 'test/**/*.{ex,exs}' 'config/*.{ex, exs}' 'priv/**/*.{ex,exs}'"
       ],
       serve: "phx.server",
-      setup: ["deps.get", "ecto.setup"],
+      setup: ["deps.get", "ecto.setup", "event_store.setup"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      "ecto.reset": ["ecto.drop", "event_store.drop", "ecto.setup"],
+      "event_store.setup": ["event_store.create", "event_store.init", "event_store.migrate"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.deploy": ["esbuild default --minify", "phx.digest"],
       tt: "test --trace",

@@ -1,4 +1,6 @@
 defmodule FootballWeb.Router do
+  @moduledoc false
+
   use FootballWeb, :router
 
   pipeline :browser do
@@ -18,6 +20,7 @@ defmodule FootballWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    live "/todo", TodoLive
   end
 
   # Other scopes may use custom stacks.

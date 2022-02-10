@@ -9,6 +9,14 @@ config :football, Football.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+config :football, Football.EventStore,
+  serializer: Commanded.Serialization.JsonSerializer,
+  username: "football",
+  password: "football",
+  hostname: "football-db",
+  database: "football_eventstore",
+  pool_size: 10
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
