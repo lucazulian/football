@@ -52,7 +52,7 @@ defmodule Football.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:uuid, "~> 1.1"},
+      {:elixir_uuid, "~> 1.2"},
       {:credo, "~> 1.6", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
       {:excoveralls, "~> 0.14.4", only: :test},
