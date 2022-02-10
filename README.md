@@ -2,6 +2,8 @@
 
 A commanded application for testing Commanded stuff
 
+A simple Event Storming for commanded application example for [todo app](https://miro.com/app/board/uXjVOOQFU3Y=/)
+
 
 Application created by:
 
