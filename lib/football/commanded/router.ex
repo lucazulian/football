@@ -3,7 +3,7 @@ defmodule Football.Commanded.Router do
 
   use Commanded.Commands.Router
 
-  dispatch Football.Commands.Create,
-    to: Football.Aggregates.Item,
-    identity: :item_id
+  dispatch Football.Commands.CreateMatch,
+    to: Football.Aggregates.Match,
+    identity: :id
 end

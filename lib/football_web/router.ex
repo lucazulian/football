@@ -20,7 +20,7 @@ defmodule FootballWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    live "/todo", TodoLive
+    live "/match", MatchLive
   end
 
   # Other scopes may use custom stacks.

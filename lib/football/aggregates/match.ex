@@ -1,4 +1,4 @@
-defmodule Football.Aggregates.Item do
+defmodule Football.Aggregates.Match do
   @moduledoc false
 
   defstruct id: nil
@@ -12,12 +12,12 @@ defmodule Football.Aggregates.Item do
 
   require Logger
 
-  def execute(%__MODULE__{id: nil}, %C.Create{item_id: item_id}) do
-    %E.ItemCreated{item_id: item_id}
+  def execute(%__MODULE__{id: nil}, %C.CreateMatch{id: id}) do
+    %E.MatchCreated{id: id}
   end
 
-  def apply(%__MODULE__{} = item, %E.ItemCreated{item_id: item_id}) do
-    %{item | id: item_id}
+  def apply(%__MODULE__{} = match, %E.MatchCreated{id: id}) do
+    %{match | id: id}
   end
 
   def apply(%__MODULE__{} = item, command) do
