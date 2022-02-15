@@ -8,9 +8,7 @@
 import Config
 
 config :football,
-  ecto_repos: [Football.Repo]
-
-config :football,
+  ecto_repos: [Football.Repo],
   event_stores: [Football.EventStore]
 
 # Configures the endpoint
@@ -49,6 +47,17 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :football, Football.Commanded.Application,
+  event_store: [
+    adapter: Commanded.EventStore.Adapters.EventStore,
+    event_store: Football.EventStore
+  ],
+  pub_sub: :local,
+  registry: :local
+
+config :commanded_ecto_projections,
+  repo: Football.Repo
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

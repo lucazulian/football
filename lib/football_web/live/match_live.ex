@@ -3,6 +3,9 @@ defmodule FootballWeb.MatchLive do
 
   use Phoenix.LiveView
 
+  alias Football.Commanded.Application
+  alias Football.Commands, as: C
+
   @impl true
   def mount(_params, _session, socket) do
     {:ok, socket}
@@ -10,9 +13,7 @@ defmodule FootballWeb.MatchLive do
 
   @impl true
   def handle_event("create", _, socket) do
-    :ok =
-      Football.Commanded.Application.dispatch(%Football.Commands.CreateMatch{id: UUID.uuid4()})
-
+    :ok = Application.dispatch(%C.CreateMatch{id: UUID.uuid4()})
     {:noreply, socket}
   end
 end

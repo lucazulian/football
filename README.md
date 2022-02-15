@@ -42,3 +42,12 @@ You can also run your app inside IEx (Interactive Elixir) as:
 ``` elixir
     $ iex -S mix phx.server
 ```
+
+
+## Development links
+
+  * [Conventional Commits][1]
+  * [Elixir Style Guide][2]
+
+  [1]: https://www.conventionalcommits.org/en/v1.0.0/
+  [2]: https://github.com/christopheradams/elixir_style_guide

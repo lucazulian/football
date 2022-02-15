@@ -14,7 +14,9 @@ defmodule Football.Commanded.Supervisor do
 
   defp children do
     [
-      Football.Commanded.Application
+      Football.Commanded.Application,
+      Football.Handlers.EmailSender,
+      Football.Projections.MatchesProjector
     ]
   end
 end
