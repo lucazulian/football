@@ -4,7 +4,7 @@ A commanded application for testing Commanded stuff
 
 [![CI](https://github.com/lucazulian/football/actions/workflows/ci.yml/badge.svg)](https://github.com/lucazulian/football/actions/workflows/ci.yml)
 
-A simple Event Storming for commanded application example for [todo app](https://miro.com/app/board/uXjVOOQFU3Y=/)
+A simple Event Storming for commanded application example for [football app](https://miro.com/app/board/uXjVOOQFU3Y=/)
 
 
 Application created by:
