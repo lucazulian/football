@@ -10,6 +10,7 @@ services:
       - seccomp:unconfined
     working_dir: /app
     command: tail -f /dev/null
+    # command: mix serve
     environment:
       POSTGRES_HOST: football-db
       POSTGRES_PORT: 5432
