@@ -50,6 +50,7 @@ defmodule Football.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:elixir_uuid, "~> 1.2"},
+      {:timex, "~> 3.7"},
       {:credo, "~> 1.6", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
       {:excoveralls, "~> 0.14.4", only: :test},
