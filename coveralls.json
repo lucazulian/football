@@ -8,6 +8,7 @@
   },
 
   "skip_files": [
+    "lib/football/support/log_formatter.ex",
     "test/support/",
     "priv/"
   ]
